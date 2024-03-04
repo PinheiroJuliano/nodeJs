@@ -24,5 +24,5 @@ console.log(notas);
 
 soma = somanotas(notas);
 media = soma / notas.length;
-console.log("A nova soma das notas é:", soma);
+console.log("A nova soma total das notas é:", soma);
 console.log("A nova média das notas é:", media);
