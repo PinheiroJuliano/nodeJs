@@ -30,17 +30,26 @@ const cliente = {
     },
     mostraEndereco: function () {
         const enderecoPrincipal = this.enderecos.find(endereco => endereco.principal);
-        console.log(`O endereço do cliente é: ${enderecoPrincipal.rua}, ${enderecoPrincipal.numero}, ${enderecoPrincipal.tipo} ${enderecoPrincipal.complemento} - ${enderecoPrincipal.cidade}`); 
-    }
+        console.log(`O endereço do cliente é: ${enderecoPrincipal.rua}, ${enderecoPrincipal.numero}, ${enderecoPrincipal.tipo}, ${enderecoPrincipal.complemento}, ${enderecoPrincipal.cidade}`);
+    }    
 };
 
 for (let chave in cliente) {
-        let tipo = typeof cliente[chave];
-        if (tipo !== 'object' && tipo !== 'function') {
-            console.log(`A chave ${chave} tem o valor ${cliente[chave]}`);
-        } else if (chave === 'enderecos' && tipo === 'object') {
-            cliente.mostraEndereco();
-        }
+    let tipo = typeof cliente[chave];
+    if (tipo !== 'object' && tipo !== 'function') {
+        console.log(`A chave ${chave} tem o valor ${cliente[chave]}`);
+    } else if (chave === 'enderecos' && tipo === 'object') {
+        cliente.mostraEndereco(); 
     }
+}
 
 cliente.efetuaPagamento(250);
+
+const enderecoPrincipal = cliente.enderecos.find(endereco => endereco.principal);
+
+const entrega = {
+    destinatario: cliente.nome,
+    ...enderecoPrincipal,
+}
+
+console.log(entrega);
